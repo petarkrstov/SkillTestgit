@@ -1,7 +1,7 @@
 #include <Arduino.h>
 
 #define LED_PIN 13
-#define BLINK_DELAY 100
+#define BLINK_DELAY 200
 
 int n = 0;
 
