@@ -17,7 +17,7 @@ TaskHandle_t Task_HandleTime;
 void setup()
 {
   debug_init();
-  Serial.begin(9600);
+  //Serial.begin(9600);
   // Ime na funkcija, Name of task, Stack memmory, parameter, priority, &TaskHandle_t name
   xTaskCreate(Task_Print1, "Task1", 100, NULL, 1, &Task_Handle1);
   xTaskCreate(Task_Print2, "Task2", 100, NULL, 1, &Task_Handle2);
@@ -40,7 +40,7 @@ void Task_Print1(void *parameter)
   // Loop for this task
   while (1)
   {
-    Serial.println("Task1");
+    //Serial.println("Task1");
     vTaskDelay(100 / portTICK_PERIOD_MS);
   }
 }
@@ -51,7 +51,7 @@ void Task_Print2(void *parameter)
   // Loop for this task
   while (1)
   {
-    Serial.println("Task2");
+    //Serial.println("Task2");
     vTaskDelay(100 / portTICK_PERIOD_MS);
   }
 }
@@ -87,13 +87,13 @@ void Task_Time(void *parameter)
     minutes = minutes % 60;
 
     // Print the elapsed time to the serial console
-    Serial.print("Time Elapsed: ");
-    Serial.print(hours);
-    Serial.print("h ");
-    Serial.print(minutes);
-    Serial.print("m ");
-    Serial.print(seconds);
-    Serial.println("s");
+    // Serial.print("Time Elapsed: ");
+    // Serial.print(hours);
+    // Serial.print("h ");
+    // Serial.print(minutes);
+    // Serial.print("m ");
+    // Serial.print(seconds);
+    // Serial.println("s");
 
     vTaskDelay(5000 / portTICK_PERIOD_MS); // Wait for 1 second before printing again
   }
