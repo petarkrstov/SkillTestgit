@@ -207,7 +207,7 @@ void Task_WriteSerial2(void *parameter)
   while (1)
   {
     const uint8_t *writeSerial2Array = (const uint8_t *)writeSerial2.c_str();
-    Serial1.write(writeSerial2Array, writeSerial2Length);
+    Serial2.write(writeSerial2Array, writeSerial2Length);
   }
 }
 
@@ -218,6 +218,6 @@ void Task_WriteSerial3(void *parameter)
   while (1)
   {
     const uint8_t *writeSerial3Array = (const uint8_t *)writeSerial3.c_str();
-    Serial1.write(writeSerial3Array, writeSerial3Length);
+    Serial3.write(writeSerial3Array, writeSerial3Length);
   }
 }
