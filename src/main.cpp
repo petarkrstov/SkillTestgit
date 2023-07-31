@@ -1,5 +1,8 @@
 #include <Arduino.h>
 #include <Arduino_FreeRTOS.h>
+#include "avr8-stub.h"
+#include "app_api.h" // only needed with flash breakpoints
+#include "funkcii.h"
 
 void Task_Print1(void *parameter);
 void Task_Print2(void *parameter);
@@ -13,6 +16,7 @@ TaskHandle_t Task_HandleTime;
 
 void setup()
 {
+  debug_init();
   Serial.begin(9600);
   // Ime na funkcija, Name of task, Stack memmory, parameter, priority, &TaskHandle_t name
   xTaskCreate(Task_Print1, "Task1", 100, NULL, 1, &Task_Handle1);
@@ -27,7 +31,7 @@ void loop()
   // No code here!!!
   // It will print on serial whenever CPU is in idle
   // Serial.println(F("Loop function"));
-  // delay(50);
+  // delay(15);
 }
 
 void Task_Print1(void *parameter)
@@ -37,7 +41,7 @@ void Task_Print1(void *parameter)
   while (1)
   {
     Serial.println("Task1");
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    vTaskDelay(100 / portTICK_PERIOD_MS);
   }
 }
 
@@ -48,7 +52,7 @@ void Task_Print2(void *parameter)
   while (1)
   {
     Serial.println("Task2");
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    vTaskDelay(100 / portTICK_PERIOD_MS);
   }
 }
 
@@ -59,9 +63,9 @@ void Task_Led(void *parameter)
   while (1)
   {
     digitalWrite(13, HIGH);
-    vTaskDelay(500 / portTICK_PERIOD_MS);
+    vTaskDelay(50 / portTICK_PERIOD_MS);
     digitalWrite(13, LOW);
-    vTaskDelay(500 / portTICK_PERIOD_MS);
+    vTaskDelay(50 / portTICK_PERIOD_MS);
   }
 }
 
