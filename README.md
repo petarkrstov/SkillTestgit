@@ -1,1 +1,3 @@
 # SkillTestgit
+For debugging you must NOT use the serial.begin, serial.print...
+debug_init(); is replaceing Serial.begin();
